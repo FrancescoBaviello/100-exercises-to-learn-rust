@@ -32,17 +32,17 @@ Alternatively, we could write a single extension trait and then different implem
 
 ```rust
 trait IsEven {
-    fn is_even(&self) -> bool;
+    fn IsEven(&self) -> bool;
 }
 
 impl IsEven for i32 {
-    fn is_even(&self) -> bool {
+    fn IsEven(&self) -> bool {
         self % 2 == 0
     }
 }
 
 impl IsEven for i64 {
-    fn is_even(&self) -> bool {
+    fn IsEven(&self) -> bool {
         self % 2 == 0
     }
 }
@@ -62,7 +62,7 @@ fn print_if_even<T>(n: T)
 where
     T: IsEven + Debug
 {
-    if n.is_even() {
+    if n.IsEven() {
         println!("{n:?} is even");
     }
 }
@@ -85,7 +85,7 @@ To find out, let's try to remove them:
 
 ```rust
 fn print_if_even<T>(n: T) {
-    if n.is_even() {
+    if n.IsEven() {
         println!("{n:?} is even");
     }
 }
@@ -94,14 +94,14 @@ fn print_if_even<T>(n: T) {
 This code won't compile:
 
 ```text
-error[E0599]: no method named `is_even` found for type parameter `T` 
+error[E0599]: no method named `IsEven` found for type parameter `T` 
               in the current scope
  --> src/lib.rs:2:10
   |
 1 | fn print_if_even<T>(n: T) {
-  |                  - method `is_even` not found 
+  |                  - method `IsEven` not found 
   |                    for this type parameter
-2 |     if n.is_even() {
+2 |     if n.IsEven() {
   |          ^^^^^^^ method not found in `T`
 
 error[E0277]: `T` doesn't implement `Debug`
@@ -119,7 +119,7 @@ help: consider restricting type parameter `T`
 ```
 
 Without trait bounds, the compiler doesn't know what `T` **can do**.\
-It doesn't know that `T` has an `is_even` method, and it doesn't know how to format `T` for printing.
+It doesn't know that `T` has an `IsEven` method, and it doesn't know how to format `T` for printing.
 From the compiler point of view, a bare `T` has no behaviour at all.\
 Trait bounds restrict the set of types that can be used by ensuring that the behaviour required by the function
 body is present.

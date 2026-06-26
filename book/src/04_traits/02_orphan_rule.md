@@ -5,7 +5,7 @@ can't directly define new methods for it. If you try:
 
 ```rust
 impl u32 {
-    fn is_even(&self) -> bool {
+    fn IsEven(&self) -> bool {
         self % 2 == 0
     }
 }
@@ -28,7 +28,7 @@ An **extension trait** is a trait whose primary purpose is to attach new methods
 to foreign types, such as `u32`.
 That's exactly the pattern you deployed in the previous exercise, by defining
 the `IsEven` trait and then implementing it for `i32` and `u32`. You are then
-free to call `is_even` on those types as long as `IsEven` is in scope.
+free to call `IsEven` on those types as long as `IsEven` is in scope.
 
 ```rust
 // Bring the trait in scope
@@ -36,7 +36,7 @@ use my_library::IsEven;
 
 fn main() {
     // Invoke its method on a type that implements it
-    if 4.is_even() {
+    if 4.IsEven() {
         // [...]
     }
 }
@@ -52,17 +52,17 @@ For example:
 
 ```rust
 trait IsEven {
-    fn is_even(&self) -> bool;
+    fn IsEven(&self) -> bool;
 }
 
 impl IsEven for u32 {
-    fn is_even(&self) -> bool {
+    fn IsEven(&self) -> bool {
         true
     }
 }
 
 impl IsEven for u32 {
-    fn is_even(&self) -> bool {
+    fn IsEven(&self) -> bool {
         false
     }
 }
@@ -80,7 +80,7 @@ error[E0119]: conflicting implementations of trait `IsEven` for type `u32`
    | ^^^^^^^^^^^^^^^^^^^ conflicting implementation for `u32`
 ```
 
-There can be no ambiguity as to what trait implementation should be used when `IsEven::is_even`
+There can be no ambiguity as to what trait implementation should be used when `IsEven::IsEven`
 is invoked on a `u32` value, therefore there can only be one.
 
 ## Orphan rule
@@ -99,7 +99,7 @@ Imagine the following situation:
 - Crate `A` defines the `IsEven` trait
 - Crate `B` implements `IsEven` for `u32`
 - Crate `C` provides a (different) implementation of the `IsEven` trait for `u32`
-- Crate `D` depends on both `B` and `C` and calls `1.is_even()`
+- Crate `D` depends on both `B` and `C` and calls `1.IsEven()`
 
 Which implementation should be used? The one defined in `B`? Or the one defined in `C`?\
 There's no good answer, therefore the orphan rule was defined to prevent this scenario.

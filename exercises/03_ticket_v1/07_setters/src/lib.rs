@@ -11,6 +11,17 @@ pub struct Ticket {
 
 impl Ticket {
     pub fn new(title: String, description: String, status: String) -> Ticket {
+
+        Self::check_status(&title, &description, &status);
+
+        Ticket {
+            title,
+            description,
+            status,
+        }
+    }
+
+    fn check_status(title: &String, description: &String, status: &String){
         if title.is_empty() {
             panic!("Title cannot be empty");
         }
@@ -26,12 +37,6 @@ impl Ticket {
         if status != "To-Do" && status != "In Progress" && status != "Done" {
             panic!("Only `To-Do`, `In Progress`, and `Done` statuses are allowed");
         }
-
-        Ticket {
-            title,
-            description,
-            status,
-        }
     }
 
     pub fn title(&self) -> &String {
@@ -45,6 +50,23 @@ impl Ticket {
     pub fn status(&self) -> &String {
         &self.status
     }
+
+    pub fn set_title(&mut self, title: String) {
+        Self::check_status(&title, &self.description, &self.status);
+        self.title = title;
+    }
+
+    pub fn set_description(&mut self, description: String) {
+        Self::check_status(&self.title, &description, &self.status);
+        self.description = description;
+    }
+
+    pub fn set_status(&mut self, status: String) {
+        Self::check_status(&self.title, &self.description, &status);
+        self.status = status;
+    }
+
+
 }
 
 #[cfg(test)]
