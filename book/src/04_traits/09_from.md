@@ -101,7 +101,7 @@ pub struct Foo<T: ?Sized> {
 ```
 
 This syntax reads as "`T` may or may not be `Sized`", and it allows you to
-bind `T` to a DST (e.g. `Foo<str>`). It is a special case, though: negative trait bounds are exclusive to `Sized`,
+bind `T` to a DST (_e.g. `Foo<str>`). It is a special case, though: negative trait bounds are exclusive to `Sized`,
 you can't use them with other traits.
 
 ## `&str` to `String`
@@ -142,7 +142,7 @@ What's the target type, though?
 
 In most cases, the target type is either:
 
-- Specified by the signature of a function/method (e.g. `Ticket::new` in our example above)
-- Specified in the variable declaration with a type annotation (e.g. `let title: String = "A title".into();`)
+- Specified by the signature of a function/method (_e.g. `Ticket::new` in our example above)
+- Specified in the variable declaration with a type annotation (_e.g. `let title: String = "A title".into();`)
 
 `.into()` will work out of the box as long as the compiler can infer the target type from the context without ambiguity.

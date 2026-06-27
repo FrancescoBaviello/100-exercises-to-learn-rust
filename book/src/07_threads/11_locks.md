@@ -14,7 +14,7 @@ desired changes. The server will only apply the patch if the version number matc
 In the scenario described above, the server would reject the second patch, because the version number would
 have been incremented by the first patch and thus wouldn't match the one sent by the second client.
 
-This approach is fairly common in distributed systems (e.g. when client and servers don't share memory),
+This approach is fairly common in distributed systems (_e.g. when client and servers don't share memory),
 and it is known as **optimistic concurrency control**.\
 The idea is that most of the time, conflicts won't happen, so we can optimize for the common case.
 You know enough about Rust by now to implement this strategy on your own as a bonus exercise, if you want to.

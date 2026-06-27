@@ -41,7 +41,7 @@ async fn http_call() {
 Each yield point becomes a **cancellation point**.\
 `http_call` can't be preempted by the runtime, so it can only be discarded after
 it has yielded control back to the executor via `.await`.
-This applies recursively—e.g. `stream.write_all(&request)` is likely to have multiple
+This applies recursively—_e.g. `stream.write_all(&request)` is likely to have multiple
 yield points in its implementation. It is perfectly possible to see `http_call` pushing
 a _partial_ request before being cancelled, thus dropping the connection and never
 finishing transmitting the body.
@@ -103,7 +103,7 @@ async fn run() {
 - Be extremely careful when using `tokio`'s `select!` macro to "race" two different futures.
   Retrying the same task in a loop is dangerous unless you can ensure **cancellation safety**.
   Check out [`select!`'s documentation](https://tokio.rs/tokio/tutorial/select) for more details.\
-  If you need to interleave two asynchronous streams of data (e.g. a socket and a channel), prefer using
+  If you need to interleave two asynchronous streams of data (_e.g. a socket and a channel), prefer using
   [`StreamExt::merge`](https://docs.rs/tokio-stream/latest/tokio_stream/trait.StreamExt.html#method.merge) instead.
 - A [`CancellationToken`](https://docs.rs/tokio-util/latest/tokio_util/sync/struct.CancellationToken.html) may be
   preferable to `JoinHandle::abort` in some cases.

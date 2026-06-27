@@ -51,7 +51,7 @@ error[E0004]: non-exhaustive patterns: `ToDo` not covered
 ```
 
 This is a big deal!\
-Codebases evolve over time—you might add a new status down the line, e.g. `Blocked`. The Rust compiler
+Codebases evolve over time—you might add a new status down the line, _e.g. `Blocked`. The Rust compiler
 will emit an error for every single `match` statement that's missing logic for the new variant.
 That's why Rust developers often sing the praises of "compiler-driven refactoring"—the compiler tells you
 what to do next, you just have to fix what it reports.

@@ -12,13 +12,13 @@ pub trait Error: Debug + Display {
 ```
 
 The `source` method is a way to access the **error cause**, if any.\
-Errors are often chained, meaning that one error is the cause of another: you have a high-level error (e.g.
-cannot connect to the database) that is caused by a lower-level error (e.g. can't resolve the database hostname).
+Errors are often chained, meaning that one error is the cause of another: you have a high-level error (_e.g.
+cannot connect to the database) that is caused by a lower-level error (_e.g. can't resolve the database hostname).
 The `source` method allows you to "walk" the full chain of errors, often used when capturing error context in logs.
 
 ## Implementing `source`
 
-The `Error` trait provides a default implementation that always returns `None` (_i.e. no underlying cause). That's why
+The `Error` trait provides a default implementation that always returns `None` (_i._e. no underlying cause). That's why
 you didn't have to care about `source` in the previous exercises.\
 You can override this default implementation to provide a cause for your error type.
 
@@ -53,7 +53,7 @@ Let's unpack it:
 
 - `dyn Error` is a **trait object**. It's a way to refer to any type that implements the `Error` trait.
 - `'static` is a special **lifetime specifier**.
-  `'static` implies that the reference is valid for "as long as we need it", _i.e. the entire program execution.
+  `'static` implies that the reference is valid for "as long as we need it", _i._e. the entire program execution.
 
 Combined: `&(dyn Error + 'static)` is a reference to a trait object that implements the `Error` trait
 and is valid for the entire program execution.
@@ -130,15 +130,15 @@ use std::fs::File;
 fn read_file() -> Result<String, std::io::Error> {
     let mut file = match File::open("file.txt") {
         Ok(file) => file,
-        Err(e) => {
-            return Err(e);
+        Err(_e) => {
+            return Err(_e);
         }
     };
     let mut contents = String::new();
     match file.read_to_string(&mut contents) {
         Ok(_) => (),
-        Err(e) => {
-            return Err(e);
+        Err(_e) => {
+            return Err(_e);
         }
     }
     Ok(contents)
@@ -147,4 +147,4 @@ fn read_file() -> Result<String, std::io::Error> {
 
 You can use the `?` operator to shorten your error handling code significantly.\
 In particular, the `?` operator will automatically convert the error type of the fallible operation into the error type
-of the function, if a conversion is possible (_i.e. if there is a suitable `From` implementation)
+of the function, if a conversion is possible (_i._e. if there is a suitable `From` implementation)

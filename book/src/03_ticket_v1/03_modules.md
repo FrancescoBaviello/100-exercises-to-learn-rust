@@ -9,7 +9,7 @@ Let's start with modules.
 
 ## What is a module?
 
-In Rust a **module** is a way to group related code together, under a common namespace (_i.e. the module's name).\
+In Rust a **module** is a way to group related code together, under a common namespace (_i._e. the module's name).\
 You've already seen modules in action: the unit tests that verify the correctness of your code are defined in a
 different module, named `tests`.
 
@@ -45,7 +45,7 @@ mod dog;
 
 `cargo`, Rust's build tool, is then in charge of finding the file that contains
 the module implementation.\
-If your module is declared in the root of your crate (e.g. `src/lib.rs` or `src/main.rs`),
+If your module is declared in the root of your crate (_e.g. `src/lib.rs` or `src/main.rs`),
 `cargo` expects the file to be named either:
 
 - `src/<module_name>.rs`
@@ -81,9 +81,9 @@ You have to use a **path** pointing to the entity you want to access.
 
 You can compose the path in various ways:
 
-- starting from the root of the current crate, e.g. `crate::module_1::MyStruct`
-- starting from the parent module, e.g. `super::my_function`
-- starting from the current module, e.g. `sub_module_1::MyStruct`
+- starting from the root of the current crate, _e.g. `crate::module_1::MyStruct`
+- starting from the parent module, _e.g. `super::my_function`
+- starting from the current module, _e.g. `sub_module_1::MyStruct`
 
 Both `crate` and `super` are **keywords**.\
 `crate` refers to the root of the current crate, while `super` refers to the parent of the current module.

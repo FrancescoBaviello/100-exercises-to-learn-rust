@@ -1,7 +1,7 @@
 # Iteration
 
 During the very first exercises, you learned that Rust lets you iterate over collections using `for` loops.
-We were looking at ranges at that point (e.g. `0..5`), but the same holds true for collections like arrays and vectors.
+We were looking at ranges at that point (_e.g. `0..5`), but the same holds true for collections like arrays and vectors.
 
 ```rust
 // It works for `Vec`s

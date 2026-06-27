@@ -95,8 +95,8 @@ use tokio::task::JoinError;
 
 pub async fn run() {
     let handle = tokio::spawn(work());
-    if let Err(e) = handle.await {
-        if let Ok(reason) = e.try_into_panic() {
+    if let Err(_e) = handle.await {
+        if let Ok(reason) = _e.try_into_panic() {
             // The task has panicked
             // We resume unwinding the panic,
             // thus propagating it to the current task

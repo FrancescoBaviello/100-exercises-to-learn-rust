@@ -2,8 +2,8 @@
 
 We've seen two use cases for traits so far:
 
-- Unlocking "built-in" behaviour (e.g. operator overloading)
-- Adding new behaviour to existing types (_i.e. extension traits)
+- Unlocking "built-in" behaviour (_e.g. operator overloading)
+- Adding new behaviour to existing types (_i._e. extension traits)
 
 There's a third use case: **generic programming**.
 

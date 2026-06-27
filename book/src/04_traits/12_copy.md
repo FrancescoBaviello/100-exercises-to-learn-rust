@@ -42,7 +42,7 @@ also be able to create a new instance _explicitly_ by calling `.clone()`.
 
 That's not all, though. A few more conditions must be met:
 
-1. The type doesn't manage any _additional_ resources (e.g. heap memory, file handles, etc.) beyond the `std::mem::size_of`
+1. The type doesn't manage any _additional_ resources (_e.g. heap memory, file handles, etc.) beyond the `std::mem::size_of`
    bytes that it occupies in memory.
 2. The type is not a mutable reference (`&mut T`).
 
@@ -69,7 +69,7 @@ and the new instance would point to the same memory buffer:
    |                                    |
    v                                    |
  +---+---+---+---+---+                  |
- | H | e | l | l | o |                  |
+ | H | _e | l | l | o |                  |
  +---+---+---+---+---+                  |
    ^                                    |
    |                                    |

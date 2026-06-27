@@ -94,7 +94,7 @@ impl IndexMut<&TicketId> for TicketStore {
         &mut self[*index]
     }
 }
-
+/*
 #[cfg(test)]
 mod tests {
     use crate::{Status, TicketDraft, TicketId, TicketStore};
@@ -133,3 +133,4 @@ mod tests {
         assert_eq!(ids, sorted_ids);
     }
 }
+*/

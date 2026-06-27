@@ -11,8 +11,8 @@ our state, the stored tickets.
 
 We will then have **multiple client threads**.\
 Each client will be able to send **commands** and **queries** to
-the stateful thread, in order to change its state (e.g. add a new ticket)
-or retrieve information (e.g. get the status of a ticket).\
+the stateful thread, in order to change its state (_e.g. add a new ticket)
+or retrieve information (_e.g. get the status of a ticket).\
 Client threads will run concurrently.
 
 ## Communication
@@ -49,7 +49,7 @@ You call `recv` on the receiver to pull data from the channel.
 
 ### Multiple senders
 
-`Sender` is clonable: we can create multiple senders (e.g. one for
+`Sender` is clonable: we can create multiple senders (_e.g. one for
 each client thread) and they will all push data into the same channel.
 
 `Receiver`, instead, is not clonable: there can only be a single receiver

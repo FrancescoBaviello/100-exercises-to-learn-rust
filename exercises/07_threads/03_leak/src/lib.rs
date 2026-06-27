@@ -6,7 +6,13 @@
 use std::thread;
 
 pub fn sum(v: Vec<i32>) -> i32 {
-    todo!()
+    let leaked_vec = Vec::leak(v);
+    thread::spawn(||{
+        leaked_vec[0..(leaked_vec.len()/2)].into_iter().sum::<i32>()
+    }).join().unwrap() + thread::spawn(||{
+        leaked_vec[(leaked_vec.len()/2)..leaked_vec.len()].into_iter().sum::<i32>()
+    }).join().unwrap()
+
 }
 
 #[cfg(test)]

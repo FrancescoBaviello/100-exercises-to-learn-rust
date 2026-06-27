@@ -11,7 +11,7 @@ rough edges in your day-to-day work due to some of these missing pieces.
 A few recommendations for a mostly-pain-free async experience:
 
 - **Pick a runtime and stick to it.**\
-  Some primitives (e.g. timers, I/O) are not portable across runtimes. Trying to
+  Some primitives (_e.g. timers, I/O) are not portable across runtimes. Trying to
   mix runtimes is likely to cause you pain. Trying to write code that's runtime
   agnostic can significantly increase the complexity of your codebase. Avoid it
   if you can.
@@ -29,6 +29,6 @@ A few recommendations for a mostly-pain-free async experience:
   for more details.
 
 Don't let these caveats scare you: asynchronous Rust is being used effectively
-at _massive_ scale (e.g. AWS, Meta) to power foundational services.\
+at _massive_ scale (_e.g. AWS, Meta) to power foundational services.\
 You will have to master it if you're planning building networked applications
 in Rust.

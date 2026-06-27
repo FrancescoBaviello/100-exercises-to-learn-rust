@@ -1,6 +1,6 @@
 # Implementing traits
 
-When a type is defined in another crate (e.g. `u32`, from Rust's standard library), you
+When a type is defined in another crate (_e.g. `u32`, from Rust's standard library), you
 can't directly define new methods for it. If you try:
 
 ```rust

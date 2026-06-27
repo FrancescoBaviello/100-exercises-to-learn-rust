@@ -6,7 +6,7 @@ You had to manually compare each field of the struct.
 ## Destructuring syntax
 
 Furthermore, the implementation is brittle: if the struct definition changes
-(e.g. a new field is added), you have to remember to update the `PartialEq` implementation.
+(_e.g. a new field is added), you have to remember to update the `PartialEq` implementation.
 
 You can mitigate the risk by **destructuring** the struct into its fields:
 

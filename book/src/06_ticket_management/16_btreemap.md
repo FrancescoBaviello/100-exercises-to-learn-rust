@@ -12,7 +12,7 @@ We can recover a consistent ordering by switching from a `HashMap` to a `BTreeMa
 
 A `BTreeMap` guarantees that entries are sorted by their keys.\
 This is useful when you need to iterate over the entries in a specific order, or if you need to
-perform range queries (e.g. "give me all tickets with an id between 10 and 20").
+perform range queries (_e.g. "give me all tickets with an id between 10 and 20").
 
 Just like `HashMap`, you won't find trait bounds on the definition of `BTreeMap`.
 But you'll find trait bounds on its methods. Let's look at `insert`:

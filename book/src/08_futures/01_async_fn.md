@@ -69,7 +69,7 @@ async fn run() {
 ```
 
 `.await` doesn't return control to the caller until the asynchronous function
-has run to completion—e.g. until the `TcpListener` has been created in the example above.
+has run to completion—_e.g. until the `TcpListener` has been created in the example above.
 
 ## Runtimes
 
@@ -97,7 +97,7 @@ bring your own!
 In most cases, you'll choose one of the options available in the ecosystem.
 Some runtimes are designed to be broadly applicable, a solid option for most applications.
 `tokio` and `async-std` belong to this category. Other runtimes are optimised for
-specific use cases—e.g. `embassy` for embedded systems.
+specific use cases—_e.g. `embassy` for embedded systems.
 
 Throughout this course we'll rely on `tokio`, the most popular runtime for general-purpose
 asynchronous programming in Rust.

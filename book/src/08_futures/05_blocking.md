@@ -4,7 +4,7 @@ Let's circle back to yield points.\
 Unlike threads, **Rust tasks cannot be preempted**.
 
 `tokio` cannot, on its own, decide to pause a task and run another one in its place.
-The control goes back to the executor **exclusively** when the task yields—_i.e.
+The control goes back to the executor **exclusively** when the task yields—_i._e.
 when `Future::poll` returns `Poll::Pending` or, in the case of `async fn`, when
 you `.await` a future.
 
@@ -29,7 +29,7 @@ Blocking the runtime can lead to:
   No progress can be made, unless the runtime is able to schedule the other task on
   a different thread.
 - **Starvation**: other tasks might not be able to run, or might run after a long
-  delay, which can lead to poor performances (e.g. high tail latencies).
+  delay, which can lead to poor performances (_e.g. high tail latencies).
 
 ## Blocking is not always obvious
 

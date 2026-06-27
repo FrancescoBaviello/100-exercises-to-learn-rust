@@ -68,7 +68,7 @@ Stack | pointer | length | capacity |
          |
          v
        +---+---+---+---+---+
-Heap:  | H | e | l | l | o |
+Heap:  | H | _e | l | l | o |
        +---+---+---+---+---+
 ```
 
@@ -84,7 +84,7 @@ Stack | pointer | length | capacity |      | pointer | length | capacity |
          |                                    |
          v                                    v
        +---+---+---+---+---+                +---+---+---+---+---+
-Heap:  | H | e | l | l | o |                | H | e | l | l | o |
+Heap:  | H | _e | l | l | o |                | H | _e | l | l | o |
        +---+---+---+---+---+                +---+---+---+---+---+
 ```
 

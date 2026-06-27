@@ -41,8 +41,8 @@ so it can't reserve the right amount of space on the stack.\
 But a `String` is not _entirely_ heap-allocated, it also keeps some data on the stack. In particular:
 
 - The **pointer** to the heap region you reserved.
-- The **length** of the string, _i.e. how many bytes are in the string.
-- The **capacity** of the string, _i.e. how many bytes have been reserved on the heap.
+- The **length** of the string, _i._e. how many bytes are in the string.
+- The **capacity** of the string, _i._e. how many bytes have been reserved on the heap.
 
 Let's look at an example to understand this better:
 
@@ -87,12 +87,12 @@ Stack | pointer | length | capacity |
          |
          v
        +---+---+---+---+---+
-Heap:  | H | e | y | ? | ? |
+Heap:  | H | _e | y | ? | ? |
        +---+---+---+---+---+
 ```
 
 `s` now holds 3 bytes of text. Its length is updated to 3, but capacity remains 5.
-Three of the five bytes on the heap are used to store the characters `H`, `e`, and `y`.
+Three of the five bytes on the heap are used to store the characters `H`, `_e`, and `y`.
 
 ### `usize`
 
@@ -101,7 +101,7 @@ It depends on the **architecture** of the machine you're running on.
 
 Every memory location on your machine has an [**address**](https://en.wikipedia.org/wiki/Memory_address), commonly
 represented as an unsigned integer.
-Depending on the maximum size of the address space (_i.e. how much memory your machine can address),
+Depending on the maximum size of the address space (_i._e. how much memory your machine can address),
 this integer can have a different size. Most modern machines use either a 32-bit or a 64-bit address space.
 
 Rust abstracts away these architecture-specific details by providing the `usize` type:
@@ -128,15 +128,15 @@ therefore it doesn't track its size.
 
 Unfortunately there is no equivalent of `std::mem::size_of` to measure the amount of
 heap memory that a certain value is allocating at runtime. Some types might
-provide methods to inspect their heap usage (e.g. `String`'s `capacity` method),
+provide methods to inspect their heap usage (_e.g. `String`'s `capacity` method),
 but there is no general-purpose "API" to retrieve runtime heap usage in Rust.\
-You can, however, use a memory profiler tool (e.g. [DHAT](https://valgrind.org/docs/manual/dh-manual.html)
+You can, however, use a memory profiler tool (_e.g. [DHAT](https://valgrind.org/docs/manual/dh-manual.html)
 or [a custom allocator](https://docs.rs/dhat/latest/dhat/)) to inspect the heap usage of your program.
 
-[^empty]: `std` doesn't allocate if you create an **empty** `String` (_i.e. `String::new()`).
+[^empty]: `std` doesn't allocate if you create an **empty** `String` (_i._e. `String::new()`).
 Heap memory will be reserved when you push data into it for the first time.
 
 [^equivalence]: The size of a pointer depends on the operating system too.
-In certain environments, a pointer is **larger** than a memory address (e.g. [CHERI](https://web.archive.org/web/20240517051950/https://blog.acolyer.org/2019/05/28/cheri-abi/)).
+In certain environments, a pointer is **larger** than a memory address (_e.g. [CHERI](https://web.archive.org/web/20240517051950/https://blog.acolyer.org/2019/05/28/cheri-abi/)).
 Rust makes the simplifying assumption that pointers are the same size as memory addresses,
 which is true for most modern systems you're likely to encounter.

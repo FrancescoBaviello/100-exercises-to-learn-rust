@@ -28,7 +28,7 @@ Stack | pointer | length | capacity |      | pointer | length |
            |                                    |
            v                                    | 
          +---+---+---+---+---+                  |
-Heap:    | H | e | l | l | o |                  |
+Heap:    | H | _e | l | l | o |                  |
          +---+---+---+---+---+                  |
                ^                                |
                |                                |

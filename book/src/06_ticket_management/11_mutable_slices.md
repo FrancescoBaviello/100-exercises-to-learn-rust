@@ -21,7 +21,7 @@ This will change the first element of the `Vec` to `42`.
 ## Limitations
 
 When working with immutable borrows, the recommendation was clear: prefer slice references over references to
-the owned type (e.g. `&[T]` over `&Vec<T>`).\
+the owned type (_e.g. `&[T]` over `&Vec<T>`).\
 That's **not** the case with mutable borrows.
 
 Consider this scenario:

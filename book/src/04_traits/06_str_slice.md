@@ -37,7 +37,7 @@ Stack | pointer | length | capacity |
          |
          v
        +---+---+---+---+---+
-Heap:  | H | e | l | l | o |
+Heap:  | H | _e | l | l | o |
        +---+---+---+---+---+
 ```
 
@@ -55,7 +55,7 @@ how a `&String` is laid out in memory:
      |       
      v       
    +---+---+---+---+---+
-   | H | e | l | l | o |
+   | H | _e | l | l | o |
    +---+---+---+---+---+
 ```
 
@@ -89,7 +89,7 @@ Stack | pointer | length | capacity |      | pointer | length |
            |                                    |
            v                                    | 
          +---+---+---+---+---+                  |
-Heap:    | H | e | l | l | o |                  |
+Heap:    | H | _e | l | l | o |                  |
          +---+---+---+---+---+                  |
                ^                                |
                |                                |

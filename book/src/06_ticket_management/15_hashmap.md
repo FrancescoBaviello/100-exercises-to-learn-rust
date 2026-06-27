@@ -47,8 +47,8 @@ Let's dig into those two.
 
 ## `Hash`
 
-A hashing function (or hasher) maps a potentially infinite set of a values (e.g.
-all possible strings) to a bounded range (e.g. a `u64` value).\
+A hashing function (or hasher) maps a potentially infinite set of a values (_e.g.
+all possible strings) to a bounded range (_e.g. a `u64` value).\
 There are many different hashing functions around, each with different properties
 (speed, collision risk, reversibility, etc.).
 
@@ -79,10 +79,10 @@ struct Person {
 ## `Eq`
 
 `HashMap` must be able to compare keys for equality. This is particularly important
-when dealing with hash collisions—_i.e. when two different keys hash to the same value.
+when dealing with hash collisions—_i._e. when two different keys hash to the same value.
 
 You may wonder: isn't that what the `PartialEq` trait is for? Almost!\
-`PartialEq` is not enough for `HashMap` because it doesn't guarantee reflexivity, _i.e. `a == a` is always `true`.\
+`PartialEq` is not enough for `HashMap` because it doesn't guarantee reflexivity, _i._e. `a == a` is always `true`.\
 For example, floating point numbers (`f32` and `f64`) implement `PartialEq`,
 but they don't satisfy the reflexivity property: `f32::NAN == f32::NAN` is `false`.\
 Reflexivity is crucial for `HashMap` to work correctly: without it, you wouldn't be able to retrieve a value

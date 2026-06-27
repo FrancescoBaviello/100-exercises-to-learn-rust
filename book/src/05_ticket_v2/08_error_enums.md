@@ -1,7 +1,7 @@
 # Error enums
 
 Your solution to the previous exercise may have felt awkward: matching on strings is not ideal!\
-A colleague might rework the error messages returned by `Ticket::new` (e.g. to improve readability) and,
+A colleague might rework the error messages returned by `Ticket::new` (_e.g. to improve readability) and,
 all of a sudden, your calling code would break.
 
 You already know the machinery required to fix this: enums!
