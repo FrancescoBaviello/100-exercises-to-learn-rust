@@ -1,5 +1,6 @@
 // TODO: Implement `Index<&TicketId>` and `Index<TicketId>` for `TicketStore`.
 
+use std::ops::Index;
 use ticket_fields::{TicketDescription, TicketTitle};
 
 #[derive(Clone)]
@@ -55,6 +56,30 @@ impl TicketStore {
 
     pub fn get(&self, id: TicketId) -> Option<&Ticket> {
         self.tickets.iter().find(|&t| t.id == id)
+    }
+}
+
+impl Index<&TicketId> for TicketStore{
+    type Output = Ticket;
+
+    fn index(&self, index: &TicketId) -> &Self::Output {
+        match self.tickets.iter().find(|&arg0| arg0.id == *index) {
+            Some(i) => i,
+            None => panic!("Index out of bounds or smt")
+        }
+
+    }
+}
+
+impl Index<TicketId> for TicketStore{
+    type Output = Ticket;
+
+    fn index(&self, index: TicketId) -> &Self::Output {
+        match self.tickets.iter().find(|&arg0| arg0.id == index) {
+            Some(i) => i,
+            None => panic!("Index out of bounds or smt")
+        }
+
     }
 }
 

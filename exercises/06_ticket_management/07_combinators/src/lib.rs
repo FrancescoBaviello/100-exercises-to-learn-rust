@@ -1,10 +1,25 @@
 // TODO: Implement the `to_dos` method. It must return a `Vec` of references to the tickets
 //  in `TicketStore` with status set to `Status::ToDo`.
 use ticket_fields::{TicketDescription, TicketTitle};
+use crate::Status::ToDo;
 
 #[derive(Clone)]
 pub struct TicketStore {
     tickets: Vec<Ticket>,
+}
+
+impl TicketStore {
+    pub(crate) fn to_dos(&self) -> Vec<&Ticket> {
+        let mut res = vec![];
+        let mut iterator = self.tickets.iter();
+
+        match iterator.next(){
+            Some(i) => if i.status == ToDo {res.push(i)}
+            None => ()
+        }
+
+        res
+    }
 }
 
 #[derive(Clone, Debug, PartialEq)]

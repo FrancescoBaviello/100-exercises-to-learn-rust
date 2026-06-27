@@ -7,10 +7,21 @@
 // and returns an `Option<&Ticket>`.
 
 use ticket_fields::{TicketDescription, TicketTitle};
+use crate::Status::ToDo;
 
 #[derive(Clone)]
 pub struct TicketStore {
     tickets: Vec<Ticket>,
+    last_id : TicketId
+}
+
+impl TicketStore {
+    pub(crate) fn get(&self, p0: TicketId) -> Option<&Ticket> {
+        for ticket in self.tickets.iter() {
+            if ticket.id == p0 {return Some(ticket)}
+        }
+        return None
+    }
 }
 
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -41,11 +52,23 @@ impl TicketStore {
     pub fn new() -> Self {
         Self {
             tickets: Vec::new(),
+            last_id: TicketId(0)
         }
     }
 
-    pub fn add_ticket(&mut self, ticket: Ticket) {
-        self.tickets.push(ticket);
+    pub fn add_ticket(&mut self, ticket: TicketDraft) -> TicketId {
+        let id = self.last_id.0;
+        let new_ticket = Ticket{
+            title: ticket.title,
+            description: ticket.description,
+            id: self.last_id,
+            status: ToDo
+        };
+        self.last_id = TicketId(self.last_id.0 +1 );
+        self.tickets.push(new_ticket);
+        return TicketId(id)
+
+
     }
 }
 

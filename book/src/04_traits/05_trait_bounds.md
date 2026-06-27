@@ -3,7 +3,7 @@
 We've seen two use cases for traits so far:
 
 - Unlocking "built-in" behaviour (e.g. operator overloading)
-- Adding new behaviour to existing types (i.e. extension traits)
+- Adding new behaviour to existing types (_i.e. extension traits)
 
 There's a third use case: **generic programming**.
 

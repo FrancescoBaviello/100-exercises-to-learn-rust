@@ -1,10 +1,18 @@
+use std::slice::Iter;
 // TODO: Implement the `in_progress` method. It must return an iterator over the tickets in
 //  `TicketStore` with status set to `Status::InProgress`.
 use ticket_fields::{TicketDescription, TicketTitle};
+use crate::Status::InProgress;
 
 #[derive(Clone)]
 pub struct TicketStore {
     tickets: Vec<Ticket>,
+}
+
+impl TicketStore {
+    pub fn in_progress(&self) -> impl Iterator<Item = &Ticket> {
+        self.tickets.iter().filter(|&ticket| {ticket.status == Status::InProgress})
+    }
 }
 
 #[derive(Clone, Debug, PartialEq)]

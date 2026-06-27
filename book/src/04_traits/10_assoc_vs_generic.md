@@ -126,7 +126,7 @@ impl Add<&u32> for &u32 {
 ```
 
 The type they're implementing the trait for is `&u32`, but the result of the addition is `u32`.\
-It would be impossible[^flexible] to provide this implementation if `add` had to return `Self`, i.e. `&u32` in this case.
+It would be impossible[^flexible] to provide this implementation if `add` had to return `Self`, _i.e. `&u32` in this case.
 `Output` lets `std` decouple the implementor from the return type, thus supporting this case.
 
 On the other hand, `Output` can't be a generic parameter. The output type of the operation **must** be uniquely determined

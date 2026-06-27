@@ -1,7 +1,12 @@
 // TODO: Flesh out the `WeekTemperatures` struct and its method implementations to pass the tests.
 
+use std::any::Any;
+use std::io::empty;
+use std::iter::Map;
+use std::ptr::null;
+
 pub struct WeekTemperatures {
-    // TODO
+    temperature: [Option<i32>; 7]
 }
 
 pub enum Weekday {
@@ -16,15 +21,17 @@ pub enum Weekday {
 
 impl WeekTemperatures {
     pub fn new() -> Self {
-        todo!()
+        WeekTemperatures{
+            temperature: [None,None,None,None,None,None,None]
+        }
     }
 
     pub fn get_temperature(&self, day: Weekday) -> Option<i32> {
-        todo!()
+        self.temperature[day as usize]
     }
 
     pub fn set_temperature(&mut self, day: Weekday, temperature: i32) {
-        todo!()
+        self.temperature[day as usize] = Some(temperature);
     }
 }
 
